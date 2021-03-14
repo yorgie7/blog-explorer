@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MenuAppBar() {
+export default function Navbar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -48,9 +48,10 @@ export default function MenuAppBar() {
   async function logoutUser() {
 
     await setAnchorEl(null);
-    // await localStorage.removeItem("isAuth");
-    window.location.reload();
 
+    await localStorage.removeItem("isAuth");
+
+    window.location.reload("./");
 
   };
 

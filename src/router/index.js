@@ -9,21 +9,28 @@ import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-ro
 import '../App';
 
 
+const LoginFailed = () => {
+  return (
+    <div className="App">
+      <h2>You are not logged in... </h2>
+      <Link to='/login'>Login</Link>
+    </div>)
+}
+
 const RouterComponent = () => {
 
-  const state= {isUserAuthenticated: true};
+  const state = { isUserAuthenticated: localStorage.getItem("isAuth") };
 
-   async function doUserAuthen() {
+
+  async function doUserAuthen() {
     await localStorage.setItem("isAuth", true);
-    window.location.href="/";
-   
+    window.location.href = "/";
   };
 
   return (
     <>
       <Router>
         <Switch>
-
           <Route exact path="/"
             render={() => {
               return (
@@ -31,32 +38,26 @@ const RouterComponent = () => {
             }} />
 
           <Route exact path="/users/"  >
-            {state.isUserAuthenticated ? <UserList /> : (
-              <div className="App">
-                <h2>You are not logged in... </h2>
-                <Link to='/login'>Login</Link>
-              </div>)
+            {
+              state.isUserAuthenticated ? <UserList /> : <LoginFailed />
             }
           </Route>
           <Route path="/blogs/" exact>
-
-            {state.isUserAuthenticated ? <PostsList /> : (
-              <div className="App">
-                <h2>You are not logged in... </h2>
-                <Link to='/login'>Login</Link>
-              </div>)
+            {
+              state.isUserAuthenticated ? <PostsList /> : <LoginFailed />
             }
           </Route>
 
           <Route path="/home/" exact>
-            {state.isUserAuthenticated ? <HomePage /> : (
-              <div className="App">
-                <h2>You are not logged in... </h2>
-                <Link to='/login'>Login</Link>
-              </div>)
+            {
+              state.isUserAuthenticated ? <HomePage /> : <LoginFailed />
             }
           </Route>
-          <Route path="/blogs/:blog_id" exact component={PostDetails} />
+
+          <Route path="/blogs/:blog_id" exact
+            component={state.isUserAuthenticated ? PostDetails : LoginFailed} >
+
+          </Route>
 
           <Route path="/login" >
             <LoginPage doLogin={doUserAuthen} />

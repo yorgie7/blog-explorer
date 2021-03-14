@@ -29,11 +29,10 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function LoginPage(props) {
+  const classes = useStyles();
   const [state, setState] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const classes = useStyles();
 
   useEffect(() => {
     async function fetchData() {
@@ -57,15 +56,16 @@ export default function LoginPage(props) {
 
   const onSubmit = async event => {
     event.preventDefault();
-  let filtered;
     if (email) {
-      filtered = await state.filter(function (item) {
+      let filtered = await state.filter(function (item) {
         return item.email === email && item.username === password;
       });
+      console.log(filtered);
+    { filtered.length ? props.doLogin() : alert('Please enter a registered email ...') }
+
     } else {
       alert('Please enter name');
     }
-    { filtered.length ? props.doLogin() : alert('Please enter a registered email ...') }
 
   }
 

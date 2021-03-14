@@ -37,17 +37,17 @@ export default function PostDetails(props) {
 
   useEffect(() => {
     async function fetchData() {
-      const result = await axios(`https://jsonplaceholder.typicode.com/posts?id=${blog_id}`);
+      const result = await axios(`https://jsonplaceholder.typicode.com/posts?id=1`);
       const user = await axios(`https://jsonplaceholder.typicode.com/users?id=${result.data[0].userId}`);
 
       await setState({ postData: result.data[0], userData: user.data[0] });
     }
 
     fetchData();
-  }, [blog_id]);
+  }, []);
 
   const toUpperCase = (loginStr) => loginStr.toUpperCase().slice(0, 1) + loginStr.slice(1);
-  // console.log(userData)
+
   return (
     <div className="PostDetails">
       <Card className={classes.root}>
