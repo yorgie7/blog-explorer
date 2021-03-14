@@ -12,43 +12,41 @@ import '../App.js';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: '70vw', height: '300px',
+    maxWidth: '70vw',
+    height: 'fit-content',
     margin: '50px 20px',
   },
   title: {
-    margin: "10px", padding: '0 10vw'
+    margin: "10px",
   },
   body: {
-    padding: '15vh 5vh'
+    padding: '20px 5vh',
+    minHeight: '100px'
   },
   back: {
-    margin: '10vh 0 0 0'
+    margin: '10px 0 20px 0'
   }
 
 });
 
 
 export default function PostDetails(props) {
-  const [state, setState] = useState({postData:{} , userData: {}});
-  // const [userData, setUserData] = useState({});
+  const [state, setState] = useState({ postData: {}, userData: {} });
   const { blog_id } = props.match.params;
+  const classes = useStyles();
 
   useEffect(() => {
     async function fetchData() {
       const result = await axios(`https://jsonplaceholder.typicode.com/posts?id=${blog_id}`);
       const user = await axios(`https://jsonplaceholder.typicode.com/users?id=${result.data[0].userId}`);
-    
-      await setState({postData : result.data[0], userData: user.data[0]});
+
+      await setState({ postData: result.data[0], userData: user.data[0] });
     }
 
     fetchData();
   }, [blog_id]);
 
-  const classes = useStyles();
-
-  const toUpperCase = (loginStr) => {
-    return loginStr.toUpperCase().slice(0, 1) + loginStr.slice(1);
-  }
+  const toUpperCase = (loginStr) => loginStr.toUpperCase().slice(0, 1) + loginStr.slice(1);
   // console.log(userData)
   return (
     <div className="PostDetails">
@@ -59,15 +57,19 @@ export default function PostDetails(props) {
             <Typography gutterBottom variant="subtitle1" component="h3" className={classes.title}>
               {state.postData.title && toUpperCase(state.postData.title)}
             </Typography>
-            <Typography variant="body2" color="textSecondary" height='500px' component="h3" className={classes.title}>
+            <Typography variant="body2" color="textSecondary" component="h3" className={classes.body}>
               {state.postData.body && toUpperCase(state.postData.body)}
             </Typography>
+            <Typography variant="subtitle1" color="textSecondary" component="p">
+              Authered By :
+          </Typography>
+            <Typography variant="body1" color="primary" component="p">
+              {state.userData.name}
+            </Typography>
+
           </CardContent>
         </CardActionArea>
         <Grid>
-          <Typography variant="body1" color="primary" component="p">
-            {state.userData.name}
-          </Typography>
 
 
           <Button size="small" color="primary" className={classes.back}>

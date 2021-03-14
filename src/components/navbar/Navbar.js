@@ -16,14 +16,13 @@ const useStyles = makeStyles((theme) => ({
   },
   
   title: {
-  
     marginRight:'40px'
   },
   users: {
     marginRight: '10'
   },
   blogs: { 
-    marginRight: '55%',
+    marginRight: 'auto',
   },
   link: {
     color:'white'
