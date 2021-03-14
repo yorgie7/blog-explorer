@@ -57,15 +57,15 @@ export default function LoginPage(props) {
 
   const onSubmit = async event => {
     event.preventDefault();
-
+  let filtered;
     if (email) {
-      let filtered = await state.filter(function (item) {
+      filtered = await state.filter(function (item) {
         return item.email === email && item.username === password;
       });
-      { filtered.length ? props.doLogin() : alert('Please enter a registered email ...') }
     } else {
       alert('Please enter name');
     }
+    { filtered.length ? props.doLogin() : alert('Please enter a registered email ...') }
 
   }
 

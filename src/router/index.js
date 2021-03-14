@@ -10,7 +10,8 @@ import '../App';
 
 
 const RouterComponent = () => {
-  const state= {isUserAuthenticated: localStorage.getItem('isAuth')};
+
+  const state= {isUserAuthenticated: true};
 
    async function doUserAuthen() {
     await localStorage.setItem("isAuth", true);
