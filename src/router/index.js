@@ -42,6 +42,7 @@ const RouterComponent = () => {
               state.isUserAuthenticated ? <UserList /> : <LoginFailed />
             }
           </Route>
+          
           <Route path="/blogs/" exact>
             {
               state.isUserAuthenticated ? <PostsList /> : <LoginFailed />
