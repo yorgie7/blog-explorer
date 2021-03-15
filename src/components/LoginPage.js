@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
 export default function LoginPage(props) {
   const classes = useStyles();
   const [state, setState] = useState([]);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('Sincere@april.biz');
+  const [password, setPassword] = useState('Bret');
 
   useEffect(() => {
     async function fetchData() {
@@ -91,6 +91,7 @@ export default function LoginPage(props) {
             label="Email Address"
             name="email"
             autoComplete="email"
+            value={email}
             autoFocus
             onChange={onEmailChange}
           />
@@ -101,6 +102,7 @@ export default function LoginPage(props) {
             required
             fullWidth
             name="password"
+            value={password}
             label="Password"
             type="password"
             id="password"
