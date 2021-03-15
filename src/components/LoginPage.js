@@ -61,7 +61,7 @@ export default function LoginPage(props) {
         return item.email === email && item.username === password;
       });
 
-     filtered ? props.doLogin() : alert('User not found') ;
+    filtered.length ? props.doLogin() : alert('User or password does not found') ;
 
     } else {
       alert('Please enter correct email and password...');
