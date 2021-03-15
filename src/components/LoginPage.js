@@ -60,11 +60,11 @@ export default function LoginPage(props) {
       let filtered = await state.filter(function (item) {
         return item.email === email && item.username === password;
       });
-      console.log(filtered);
-    { filtered.length ? props.doLogin() : alert('Please enter a registered email ...') }
+
+     filtered ? props.doLogin() : alert('User not found') ;
 
     } else {
-      alert('Please enter name');
+      alert('Please enter correct email and password...');
     }
 
   }

@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 const useStyles = makeStyles({
   root: {
-    maxWidth: 395,
+    maxWidth: 400,
   },
   media: {
     height: 140,
@@ -19,9 +19,12 @@ const useStyles = makeStyles({
     minHeight : '40px', margin: '10px 10px'
    },
   name: { 
-    minWidth: '10vw', marginRight: '5vw'
+    minWidth: '10vw', marginRight: 'auto'
    },
-  
+    
+   button: {
+   minWidth: 'fit-content'
+  },
   footer: {
     padding: '10px 20px'
   },
@@ -58,7 +61,7 @@ export default function PostCard(props) {
 
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={handleClick}>
       <CardActionArea className={classes.card}>
         <CardContent className={classes.body}>
           <Typography gutterBottom variant="body1" height='' component="p" className={classes.title}>
@@ -77,7 +80,7 @@ export default function PostCard(props) {
         <Typography variant="body2" color="textSecondary" component="p" className={classes.name}>
           {state && state.name}
         </Typography>
-        <Button size="small" color="primary" onClick={handleClick}>
+        <Button size="small" color="primary" onClick={handleClick} className={classes.button}>
           SEE MORE
         </Button>
 

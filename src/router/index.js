@@ -13,7 +13,7 @@ const LoginFailed = () => {
   return (
     <div className="App">
       <h2>You are not logged in... </h2>
-      <Link to='/login'>Login</Link>
+      <Link to='/login'> Login </Link>
     </div>)
 }
 
@@ -25,6 +25,7 @@ const RouterComponent = () => {
   async function doUserAuthen() {
     await localStorage.setItem("isAuth", true);
     window.location.href = "/";
+    setInterval(function(){  window.location.reload = "/"; },3000);
   };
 
   return (
@@ -42,7 +43,7 @@ const RouterComponent = () => {
               state.isUserAuthenticated ? <UserList /> : <LoginFailed />
             }
           </Route>
-          
+
           <Route path="/blogs/" exact>
             {
               state.isUserAuthenticated ? <PostsList /> : <LoginFailed />

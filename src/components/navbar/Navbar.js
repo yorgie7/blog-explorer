@@ -50,9 +50,7 @@ export default function Navbar() {
     await setAnchorEl(null);
 
     await localStorage.removeItem("isAuth");
-
     window.location.reload("./");
-
   };
 
   const handleClose = () => {
