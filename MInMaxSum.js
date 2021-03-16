@@ -1,21 +1,15 @@
-let array=[8,5,2,7,4];
+let array=[1, 3, 5, 7, 9];
 let min=array[0];
 let max=array[0];
 
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-let sum = array.reduce(reducer, 0);
-// for(let i=0;i<5;i++){
-// sum = sum+ array[i];
-// }
+let sum = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
-for(let i=0; i<4;i++){
-    if(max <array[i+1]){
-     max= array[i+1];
-    }}
-for(let i=0; i<4;i++){
-    if(min > array[i+1]){
-     min = array[i+1];
-    }}
+for(let i=1 ; i<array.length; i++){
+    if(max < array[i]){
+     max= array[i];
+    } else if(min > array[i]){
+      min = array[i];
+  }
+}
 
-console.log(`Minimum Sum is ${sum -max}`);
-console.log(`Maximum Sum is ${sum -min}`);
+console.log(`Min: ${sum -max} and Max: ${sum -min}`);
