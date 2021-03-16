@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import PostCard from './cards/PostCard';
+import PostCard from '../components/cards/PostCard';
 import { Button, TextField, Box } from '@material-ui/core/';
 
 

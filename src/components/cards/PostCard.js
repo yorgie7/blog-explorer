@@ -58,8 +58,6 @@ export default function PostCard(props) {
     history.push(`/blogs/${id}`);
   }
 
-
-
   return (
     <Card className={classes.root} onClick={handleClick}>
       <CardActionArea className={classes.card}>

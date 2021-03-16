@@ -1,9 +1,9 @@
 import React from 'react';
-import UserList from '../components/UsersList';
-import PostsList from '../components/PostsList';
+import UserList from '../pages/UsersList';
+import PostsList from '../pages/PostsList';
 import PostDetails from '../components/PostDetails';
-import LoginPage from '../components/LoginPage';
-import HomePage from '../components/HomePage';
+import LoginPage from '../pages/LoginPage';
+import HomePage from '../pages/HomePage';
 
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 import '../App';
