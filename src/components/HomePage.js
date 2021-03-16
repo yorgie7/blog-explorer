@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     height: 400,
-    alignItems: "center"
+    alignItems: "center",
+    maxWidth: "100%"
   },
   card: {
     paddingTop: '20%',
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     width: 230,
   },
   avatar: {
-    margin: '5% 30% 10% 30%',
+    margin: '0 30% 20% 30%',
     backgroundColor: theme.palette.secondary.main,
     height: 90,
     width: 90,
