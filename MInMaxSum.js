@@ -1,15 +1,17 @@
 let array=[1, 3, 5, 7, 9];
-let min=array[0];
-let max=array[0];
+let min_index = 0;
+let max_index = 0;
 
-let sum = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+let sum = array[0];
 
-for(let i=1 ; i<array.length; i++){
-    if(max < array[i]){
-     max= array[i];
-    } else if(min > array[i]){
-      min = array[i];
+for(let i = 1; i < array.length; i++){
+     sum = sum + array[i];
+
+    if(array[max_index] < array[i]){
+      max_index= i;
+    } else if(array[min_index] > array[i]){
+      min_index = i;
   }
 }
 
-console.log(`Min: ${sum -max} and Max: ${sum -min}`);
+console.log(`Min: ${sum - array[max_index]} and Max: ${sum -array[min_index]}`);
