@@ -78,7 +78,7 @@ export default function LoginPage(props) {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Login
+          Login to BlogSpace
         </Typography>
 
         <form className={classes.form}>

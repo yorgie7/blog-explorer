@@ -4,11 +4,11 @@ import Navbar from './components/navbar/Navbar'
 
 import './App.css'
 
-
+const isUserAuthenticated = localStorage.getItem("isAuth");
 const App = () =>
 (
   <>
-     <Navbar />
+    { isUserAuthenticated && <Navbar /> }
     <RouterComponent />
   </>
 )

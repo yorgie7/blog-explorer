@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PostCard from '../components/cards/PostCard';
 import { Button, TextField, Box } from '@material-ui/core/';
-
-
 class PostsList extends Component {
   constructor(props) {
     super(props);
@@ -12,12 +10,11 @@ class PostsList extends Component {
       renderPosts: [],
       Posts: [],
       isLoading: false,
-    };
+     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onClear = this.onClear.bind(this);
   }
-
 
   onChange = async event => {
     event.preventDefault();
@@ -82,7 +79,8 @@ class PostsList extends Component {
           {
             renderPosts.length < Posts.length ?
               <Button color='secondary' onClick={this.onClear}>Clear Search</Button>
-              : null }
+              : null
+           }
         </div>
 
         <div className="PostCardAlign">
@@ -90,14 +88,10 @@ class PostsList extends Component {
             !isLoading && renderPosts ?
               renderPosts.map(post => <PostCard key={post.id} post={post} />)
               :
-              (<div className="App">
-                  <h2>Loading...</h2>
-                </div>)
-
+              <h2 className='App'> loading....</h2>
           }
         </div>
       </>
-
     );
   }
 }

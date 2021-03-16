@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+.LoggedOut {
+  text-align: center;
+  margin-top: 30vh;
+}
 
 .PostDetails {
   text-align: center;

@@ -4,17 +4,18 @@ import PostsList from '../pages/PostsList';
 import PostDetails from '../components/PostDetails';
 import LoginPage from '../pages/LoginPage';
 import HomePage from '../pages/HomePage';
-
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 import '../App';
 
-
 const LoginFailed = () => {
   return (
-    <div className="App">
-      <h2>You are not logged in... </h2>
-      <Link to='/login'> Login </Link>
-    </div>)
+    <div className="LoggedOut" >
+      <h3>You are not logged in, 
+     please  
+      <Link to='/login'><span style={{fontWeight: '400', margin:'0 5px'}}> Login </span></Link>
+      to continue.</h3>
+    </div>
+    )
 }
 
 const RouterComponent = () => {
@@ -25,8 +26,7 @@ const RouterComponent = () => {
   async function doUserAuthen() {
     await localStorage.setItem("isAuth", true);
     window.location.href = "/";
-    setInterval(function(){  window.location.reload = "/"; },3000);
-  };
+  }
 
   return (
     <>

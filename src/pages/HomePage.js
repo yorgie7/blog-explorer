@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { Box, Link, Avatar, Card } from '@material-ui/core/';
 import PeopleOutlineOutlinedIcon from '@material-ui/icons/PeopleOutlineOutlined';
 import SpeakerNotesIcon from '@material-ui/icons/SpeakerNotes';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -24,18 +25,14 @@ const useStyles = makeStyles((theme) => ({
     height: 90,
     width: 90,
   },
-
-}));
-
-
+})
+);
 
 export default function HomePage() {
   const spacing = 2;
   const classes = useStyles();
 
-
   return (
-
     <Grid container className={classes.root} spacing={1}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing} >
@@ -63,16 +60,11 @@ export default function HomePage() {
               <Box component="span" m={10}>
                 <Button><Link href='./blogs/'>Blogs</Link></Button>
               </Box>
-
             </Card>
-
           </Grid>
 
         </Grid>
       </Grid>
-
     </Grid>
-
-
   );
 }
