@@ -64,7 +64,7 @@ export default function Navbar() {
             BlogSpace
           </Typography>
           <Button variant="outlined" color='primary' className={classes.users}>
-            <Link href="/" className={classes.link}>Homes</Link>
+            <Link href="/" className={classes.link}>Home</Link>
           </Button>
           <Button variant="outlined" color='primary' className={classes.users}>
             <Link href="/users/" className={classes.link}>Users</Link>
