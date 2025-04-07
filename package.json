@@ -17,11 +17,21 @@
     "update": "^0.7.4",
     "web-vitals": "^1.1.0"
   },
+  "devDependencies": {
+    "npm-force-resolutions": "^0.0.10"
+  },
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "resolutions": {
+    "postcss": "8.4.21"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "eslintConfig": {
     "extends": [
